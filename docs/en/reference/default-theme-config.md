@@ -466,7 +466,7 @@ Returns layout-related data. The returned object has the following type:
 interface {
   isHome: ComputedRef<boolean>
 
-  sidebar: ComputedRef<DefaultTheme.SidebarItem[]>
+  sidebar: DeepReadonly<ShallowRef<DefaultTheme.SidebarItem[]>>
   sidebarGroups: ComputedRef<DefaultTheme.SidebarItem[]>
   hasSidebar: ComputedRef<boolean>
   isSidebarEnabled: ComputedRef<boolean>
@@ -474,7 +474,7 @@ interface {
   hasAside: ComputedRef<boolean>
   leftAside: ComputedRef<boolean>
 
-  headers: ShallowRef<DefaultTheme.OutlineItem[]>
+  headers: DeepReadonly<ShallowRef<DefaultTheme.OutlineItem[]>>
   hasLocalNav: ComputedRef<boolean>
 }
 ```

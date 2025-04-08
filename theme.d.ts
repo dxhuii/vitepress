@@ -1,6 +1,11 @@
 // so that users can do `import DefaultTheme from 'vitepress/theme'`
 
-import type { ComputedRef, DefineComponent, ShallowRef } from 'vue'
+import type {
+  ComputedRef,
+  DefineComponent,
+  ShallowRef,
+  DeepReadonly
+} from 'vue'
 import type { EnhanceAppContext } from './dist/client/index.js'
 import type { DefaultTheme } from './types/default-theme.js'
 
@@ -16,7 +21,7 @@ export default theme
 export declare const useLayout: () => {
   isHome: ComputedRef<boolean>
 
-  sidebar: ComputedRef<DefaultTheme.SidebarItem[]>
+  sidebar: DeepReadonly<ShallowRef<DefaultTheme.SidebarItem[]>>
   sidebarGroups: ComputedRef<DefaultTheme.SidebarItem[]>
   hasSidebar: ComputedRef<boolean>
   isSidebarEnabled: ComputedRef<boolean>
@@ -27,7 +32,7 @@ export declare const useLayout: () => {
   /**
    * The outline headers of the current page.
    */
-  headers: ShallowRef<DefaultTheme.OutlineItem[]>
+  headers: DeepReadonly<ShallowRef<DefaultTheme.OutlineItem[]>>
   /**
    * Whether the current page has a local nav. Local nav is shown when the
    * "outline" is present in the page. However, note that the actual
